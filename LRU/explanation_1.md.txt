@@ -1,0 +1,3 @@
+Using a parameter 'lessAccessCount', I captured the access Count and used it for removing the old items if the cache capacity is maximum while adding a new element.
+
+Complexity is O(n), where n is the capacity of the cache

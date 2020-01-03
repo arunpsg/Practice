@@ -1,0 +1,4 @@
+Created a method isPresent to check if the item from one LinkedList is present in the final LinkedList.
+This is used in case of both Union and Intersection cases.
+
+Complexity is O(n), where n is the number of elements in larger linkedlist.

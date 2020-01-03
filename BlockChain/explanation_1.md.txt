@@ -1,0 +1,4 @@
+I have used List to store the Blocks of BlockChain
+It was easy to append data to List and retrieve the same by iteration.
+
+Complexity is O(n), where n is the number of Blocks

@@ -28,27 +28,23 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
-    print("group : ", group)
-    print("group.get_groups : ", group.get_groups())
+    if not user or not group:
+        print("Please provide valid inputs")
+        return False
 
     if group.get_groups():
         given_group = group.get_groups()
     elif group.get_users():
         groupUsers = group.get_users()
-        print("groupUsers : ", groupUsers)
         for group_user_value in groupUsers:
             if group_user_value is user:
                 return True
     else:
         return False
-    # given_group = group
-    print("group : ", group)
-    print("group groups : ", group.get_groups())
-    print("given_group : ", given_group[0].get_users())
+
     for parent_group in given_group:
         if parent_group.get_users():
             groupUsers = parent_group.get_users()
-            print("groupUsers : ", groupUsers)
             for group_user_value in groupUsers:
                 if group_user_value is user:
                     return True
@@ -75,4 +71,24 @@ sub_child.add_user(sub_child_user)
 child.add_group(sub_child)
 parent.add_group(child)
 
+ #Test Case 1:
 print("is_user_in_group : ", is_user_in_group(sub_child_user, parent))
+# Expected output :
+# # is_user_in_group : True
+
+ #Test Case 2:
+print("is_user_in_group : ", is_user_in_group("", parent))
+# Expected output :
+# Please provide valid inputs
+# is_user_in_group : False
+
+ #Test Case 3:
+test_child_user = "test_child_user"
+test_child = Group("testchild")
+test_child.add_user(test_child_user)
+sub_child.add_group(test_child)
+print("is_user_in_group : ", is_user_in_group(test_child_user, sub_child))
+# Expected output :
+# is_user_in_group :  True
+
+

@@ -32,10 +32,7 @@ class LRU_Cache(object):
     def getOldItem(self):
         lessAccessCount = 0
         oldItemKey = None
-        print("self.lru in getOldItem : ", self.lru)
         for key,value in self.lru.items():
-            print("key", key)
-            print("value", value)
             if (lessAccessCount == 0) or (value < lessAccessCount) :
                 lessAccessCount = value
                 oldItemKey = key
@@ -54,6 +51,9 @@ assert our_cache.get(2) == 2       # returns 2
 assert our_cache.get(9) == -1      # returns -1 because 9 is not present in the cache
 
 our_cache.set(5, 5)
-our_cache.set(6, 6)
+our_cache.set(6, 8768689978979797)
 
-assert our_cache.get(6) == 6      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+assert our_cache.get(6) == 8768689978979797
+
+our_cache.set(7, None)
+assert our_cache.get(7) == None

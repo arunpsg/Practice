@@ -3,8 +3,8 @@ My understanding is to find if the given user is part of a group.
 consider a hierarchy 
 
 parent --> Child  --> subChild --> User
-			|			|
-		  childUser    subChildUser
+	     |		|
+	  childUser    subChildUser
 		  
 		  
 		  
@@ -14,3 +14,4 @@ Similarly subChildUser is part of Groups - subChild, Child & parent
 So i used iterative approach to check for Users in Groups. 
 
 The Complexity is O(n^2), where n is the no of groups and users
+

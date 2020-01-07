@@ -1,7 +1,6 @@
-Tried with bulding the tree first and adding binaries for each alphabet
+Started with building the tree first and adding binaries for each alphabet
 
-Doing the reverse for decoding and appending the text
+Doing the reverse for decoding and appending the text. Handled single case string case as well.
 
 Complexity for decoding : O(n) where n is the number of characters in encoded string
 Complexity for Encoding : O(n) where n is the number of characters in input data
-

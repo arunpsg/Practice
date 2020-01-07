@@ -34,7 +34,7 @@ def is_user_in_group(user, group):
 
     if group.get_groups():
         given_group = group.get_groups()
-    elif group.get_users():
+    elif len(group.get_users()) != 0:
         groupUsers = group.get_users()
         for group_user_value in groupUsers:
             if group_user_value is user:
@@ -49,32 +49,32 @@ def is_user_in_group(user, group):
                 if group_user_value is user:
                     return True
 
-    while given_group:
-        for temp_group in given_group:
-            if temp_group.get_users():
-                temp_users = temp_group.get_users()
-                for user_value in temp_users:
-                    if user_value is user:
-                        return True
-            elif temp_group.get_groups():
-                given_group = temp_group.get_groups()
+        elif parent_group.get_users():
+            temp_users = parent_group.get_users()
+            for user_value in temp_users:
+                if user_value is user:
+                    return True
+        elif not parent_group.get_groups():
+            return False
+        else:
+            return is_user_in_group(user, parent_group)
     return False
-
 
 parent = Group("parent")
 child = Group("child")
 sub_child = Group("subchild")
-
-sub_child_user = "sub_child_user"
-sub_child.add_user(sub_child_user)
-
-child.add_group(sub_child)
 parent.add_group(child)
+child.add_group(sub_child)
+# sub_child_user = "sub_child_user"
+sub_child.add_user("sub_child_user")
+
+
+
 
  #Test Case 1:
-print("is_user_in_group : ", is_user_in_group(sub_child_user, parent))
+print("is_user_in_group : ", is_user_in_group("sub_child_user", parent))
 # Expected output :
-# # is_user_in_group : True
+# is_user_in_group : True
 
  #Test Case 2:
 print("is_user_in_group : ", is_user_in_group("", parent))
@@ -83,12 +83,24 @@ print("is_user_in_group : ", is_user_in_group("", parent))
 # is_user_in_group : False
 
  #Test Case 3:
-test_child_user = "test_child_user"
-test_child = Group("testchild")
-test_child.add_user(test_child_user)
-sub_child.add_group(test_child)
-print("is_user_in_group : ", is_user_in_group(test_child_user, sub_child))
+# test_child_user = "test_child_user"
+# test_child = Group("testchild")
+# test_child.add_user(test_child_user)
+# sub_child.add_group(test_child)
+# print("is_user_in_group : ", is_user_in_group(test_child_user, sub_child))
 # Expected output :
 # is_user_in_group :  True
 
+# test case 4 - fairly large amount of people in the group
+level_11 = Group('a1')
+level_21 = Group('b1')
+level_22 = Group('b2')
+level_23 = Group('b3')
+level_11.add_group(level_22)
+# level_21.add_group(level_22)
+level_22.add_group(level_23)
+level_23.add_user("timi")
+
+print(is_user_in_group('timi', level_11))  # Returns True
+print(is_user_in_group("desh", level_11))  # Return False
 

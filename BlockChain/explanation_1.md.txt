@@ -1,4 +1,5 @@
-I have used List to store the Blocks of BlockChain
-It was easy to append data to List and retrieve the same by iteration.
+I have used LinkedList to store the Blocks of BlockChain
 
-Complexity is O(n), where n is the number of Blocks
+Complexity is O(n), where n is the number of Blocks -> Iterating and printing the block is causing the complexity to O(n)
+
+Space Complexity is O(n), n --> based on the number of Blocks added to the LinkedList

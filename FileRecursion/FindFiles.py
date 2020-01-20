@@ -38,7 +38,8 @@ def find_dir(suffix, path, paths):
                     if inner_dir.endswith(suffix):
                         paths.append(os.path.join(inner_dir))
                 else:
-                    find_dir(suffix, path + "\\" + inner_dir, paths)
+                    # find_dir(suffix, path + "\\" + inner_dir, paths)
+                    find_dir(suffix, os.path.join(path,inner_dir), paths)
         elif path.endswith(suffix):
             paths.append(path)
     except FileNotFoundError:

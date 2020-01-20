@@ -13,5 +13,12 @@ Similarly subChildUser is part of Groups - subChild, Child & parent
 
 So i used iterative approach to check for Users in Groups. 
 
-The Complexity is O(n^2), where n is the no of groups and users
+The Complexity is O(n^2), where n is the no of groups and users:
+  There are 2 for loops which traverses through groups and children.
+  Overall complexity is O(n^2)
+
+Space complexity:
+    worst-case :O(n) where n is the total number of group and users
+    it will change based on the number of input groups and users value.
+
 

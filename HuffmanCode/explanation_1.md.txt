@@ -3,4 +3,8 @@ Started with building the tree first and adding binaries for each alphabet
 Doing the reverse for decoding and appending the text. Handled single case string case as well.
 
 Complexity for decoding : O(n) where n is the number of characters in encoded string
-Complexity for Encoding : O(n) where n is the number of characters in input data
+Complexity for Encoding : sorted() function is having worst-case complexity of O(nlogn).
+So the overall complexity is O(n * nlogn) where n is the number of characters in input data
+
+Space complexity for Encoding : O(n), where n is the number of characters in input data
+Space complexity for Decoding : O(1), the space is not varying based on the input

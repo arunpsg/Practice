@@ -1,3 +1,4 @@
 used OrderedDict which has O(1) for read, write, etc...
 
 Overall Complexity is O(1) to add and retrieve elements from LRU Cache
+Space Complexity is O(n), n is the size of the cache

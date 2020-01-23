@@ -1,7 +1,7 @@
 Created a method isPresent to check if the item from one LinkedList is present in the final LinkedList.
 This is used in case of both Union and Intersection cases.
 
-Complexity:
+Time Complexity:
  union and intersection is calling isPresent function which has a worst-case complexity of O(n) and for n elements
  the overall complexity is O(n^2), where n is the number of elements in larger linkedlist.
 

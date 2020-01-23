@@ -2,7 +2,7 @@ Used os library methods to check if the file ends with particular format.
 Used os.path.isfile(path) to confirm if the given path is a directory or a file.
 Used os.path.join() method for concatenating directory paths
 
-Complexity is O(n) where n is the number of directories and Files in the given path:
+Time Complexity is O(n) where n is the number of directories and Files in the given path:
     There is a single for loop which traverses till last element of the path using recursion which consists of directories and files.
     Overall the complexity is O(number of directories + Files)
 

@@ -18,8 +18,9 @@ class LinkedList:
         out_string = ""
         while cur_head:
             # out_string += str(cur_head.value) + " -> "
-            out_string += str("(Timestamp : " + str(item.timestamp) + ", Data : " + str(item.data) + ", SHA256 Hash : " + str(item.hash) + ", Prev_Hash : " + str(item.previous_hash) + ") <- ")
+            out_string += str("(Timestamp : " + str(cur_head.timestamp) + ", \n Data : " + str(cur_head.data) + ",\n SHA256 Hash : " + str(cur_head.hash) + ",\n Prev_Hash : " + str(cur_head.previous_hash) + ") <- ")
             cur_head = cur_head.next
+        print("out_string : ", out_string)
         return out_string
 
     def append(self, value):
@@ -70,10 +71,9 @@ class Block:
         return sha.hexdigest()
         
     def __repr__(self):
-        return str(self.data)
+        return str(self.data, self.timestamp, self.previous_hash, self.next)
 
 block_chain = LinkedList()
-
 
 
 def add_block(data):
@@ -86,23 +86,26 @@ def add_block(data):
     block_chain.append(data)
 
 
-def print_blockchain():
-    out_string = ""
-    if block_chain:
-        for item in block_chain:
-            print(item)
-    else:
-        print("Block Chain is empty!")
+# def print_blockchain():
+#     out_string = ""
+#     if block_chain:
+#         for item in block_chain:
+#             print(item)
+#     else:
+#         print("Block Chain is empty!")
+
+#TestCase_0
+print(block_chain)
 
 #TestCase 1
 add_block("1234")
-print_blockchain()
+print(block_chain)
 # Expected output:
 # (Timestamp : 1578072294.6485157, Data : 1234, SHA256 Hash : 03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4, Prev_Hash : 0) <-
 
 #TestCase 2
 add_block("")
-print_blockchain()
+print(block_chain)
 # Expected output:
 # Please enter valid data
 
@@ -110,7 +113,7 @@ print_blockchain()
 add_block("testing")
 add_block("development")
 add_block("analysis")
-print_blockchain()
+print(block_chain)
 # (Timestamp : 1578071931.3984785, Data : testing, SHA256 Hash : cf80cd8aed482d5d1527d7dc72fceff84e6326592848447d2dc0b0e87dfc9a90, Prev_Hash : 0) <-
 # (Timestamp : 1578071931.3984785, Data : development, SHA256 Hash : 875b9380866e9d56e7110b0ee310962c16d9d4ae103f829d62bdffd2cbe7c61d, Prev_Hash : cf80cd8aed482d5d1527d7dc72fceff84e6326592848447d2dc0b0e87dfc9a90) <-
 # (Timestamp : 1578071931.3984785, Data : analysis, SHA256 Hash : f44e85c4b8ea2addc796f8beab6600e801d767ccd26c800dce6d88fdaa5eb4e6, Prev_Hash : 875b9380866e9d56e7110b0ee310962c16d9d4ae103f829d62bdffd2cbe7c61d) <-

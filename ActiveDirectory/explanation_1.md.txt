@@ -11,14 +11,18 @@ parent --> Child  --> subChild --> User
 So childUser is part of Groups - Child & parent
 Similarly subChildUser is part of Groups - subChild, Child & parent
 
-So i used iterative approach to check for Users in Groups. 
+So i used iterative approach to check for Users in Groups.
+& Recursion is used to cycle through all the groups.
 
-The Complexity is O(n^2), where n is the no of groups and users:
-  There are 2 for loops which traverses through groups and children.
-  Overall complexity is O(n^2)
+Time Complexity is O(n), where n is the no of groups and users:
+ There are 2 for loops which traverses through groups and children but they don't overlap.
+
 
 Space complexity:
     worst-case :O(n) where n is the total number of group and users
+    Auxillary Space Consideration: Call Stack will be based on number of Groups traversed. O(g), where g is the number of groups
+    Space returned by the users. - Will contain all the users. lets say O(u)
+    Worst-case Space Complexity will be O(n), where n is determined by g & u i.e. n = g+u
     it will change based on the number of input groups and users value.
 
 

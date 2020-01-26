@@ -1,4 +1,4 @@
-used OrderedDict which has O(1) for read, write, etc...
+used OrderedDict which has O(1) for read, write, etc... It internally used Doubly Linked List & Dictionary data Structures.
 
-Overall Complexity is O(1) to add and retrieve elements from LRU Cache
-Space Complexity is O(n), n is the size of the cache
+Time Complexity is O(1) to add and retrieve elements from LRU Cache
+Space Complexity is O(n), n is the capacity of the cache initialized which decides the maximum number of elements stored.

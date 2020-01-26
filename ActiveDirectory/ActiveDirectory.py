@@ -36,24 +36,16 @@ def is_user_in_group(user, group):
         given_group = group.get_groups()
     elif len(group.get_users()) != 0:
         groupUsers = group.get_users()
-        for group_user_value in groupUsers:
-            if group_user_value is user:
-                return True
+        if user in groupUsers:
+            return True
     else:
         return False
 
     for parent_group in given_group:
         if parent_group.get_users():
             groupUsers = parent_group.get_users()
-            for group_user_value in groupUsers:
-                if group_user_value is user:
-                    return True
-
-        elif parent_group.get_users():
-            temp_users = parent_group.get_users()
-            for user_value in temp_users:
-                if user_value is user:
-                    return True
+            if user in groupUsers:
+                return True
         elif not parent_group.get_groups():
             return False
         else:

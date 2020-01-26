@@ -1,6 +1,7 @@
 import hashlib
 import time
 
+//DO NOT Consider this
 
 class Block:
 

@@ -1,5 +1,7 @@
 I have used LinkedList to store the Blocks of BlockChain
 
-Complexity is O(n), where n is the number of Blocks -> Iterating and printing the block is causing the complexity to O(n)
+Time Complexity is O(n),
+where n is the number of Blocks -> Iterating and printing the block is causing the complexity to O(n).
+Insertion also runs in a linear time.
 
 Space Complexity is O(n), n --> based on the number of Blocks added to the LinkedList

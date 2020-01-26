@@ -4,9 +4,13 @@ Used os.path.join() method for concatenating directory paths
 
 Time Complexity is O(n) where n is the number of directories and Files in the given path:
     There is a single for loop which traverses till last element of the path using recursion which consists of directories and files.
-    Overall the complexity is O(number of directories + Files)
+    Overall the complexity is O(number of directories + Files). Each Files (Nodes) will be visited once in a tree of Directories.
 
-Space COmplexity:
-    Worst-case: if the path has too many directories and files. - O(n), where n is the total number of elements to be traversed.
-    O(1): if the given path is a file name
-    Overall: O(n)
+Space Complexity:
+    Worst-case: if the path has too many directories and files
+    Auxillary Space Consideration: Call Stack will be based on number of Directories traversed. O(d), where d is the number of directories
+    Space returned by the paths. - Will contain all the fileNames. lets say O(f)
+    Worst-case Space Complexity will be O(n), where n is determined by d & f i.e. n = d+f
+
+    O(1): if the given path is a file name. Auxillary space: call stack will be O(1)
+    Best-case space complexity: O(1)

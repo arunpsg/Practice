@@ -5,14 +5,16 @@ Time Complexity:
  union and intersection is calling isPresent function which has a worst-case complexity of O(n) and for n elements
  the overall complexity is O(n^2), where n is the number of elements in larger linkedlist.
 
- Space Complexity for Union is O(n) where n is the number of elements in larger linkedlist,
+ Space Complexity for Union is O(n + l) where n is the number of elements in larger linkedlist,
   if there are lot of common elements between both linkedlist
   If both the linkedlists are equal or same
   if linkedlists are completely different
-  Overall : O(n)
+  Auxilllary space to be considered: Input linkedlist length --> constitues O(l), where l is length of LinkedList
+  Space complexuty is O(n + l) where n is the number of elements in larger linkedlist, l is input linkedlist length
 
   Space Complexity for Intersection is O(n) where n is the number of elements in larger linkedlist
    if there are lot of common elements between both linkedlist
    if both the linkedlists are equal or same
    O(1) if both the linkedlist are completely different
-   Overall : O(n)
+   Auxilllary space to be considered: Input linkedlist length --> constitues O(l), where l is length of LinkedList
+   Space complexuty is O(n + l) where n is the number of elements in larger linkedlist, l is input linkedlist length
